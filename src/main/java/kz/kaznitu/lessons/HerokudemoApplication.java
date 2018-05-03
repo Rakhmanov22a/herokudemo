@@ -1,6 +1,5 @@
 package kz.kaznitu.lessons;
 
-import kz.kaznitu.lessons.models.MadeIn;
 import kz.kaznitu.lessons.repositories.MadeInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,7 +18,7 @@ public class HerokudemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception{
 
-		MadeIn madeIn1 = new MadeIn();
+		/*MadeIn madeIn1 = new MadeIn();
 		madeIn1.setBikeName("Yamaha");
 		madeIn1.setLocation("Japan");
 
@@ -28,6 +27,6 @@ public class HerokudemoApplication implements CommandLineRunner {
 		madeIn2.setLocation("Korean");
 
 		madeInRepository.save(madeIn1);
-		madeInRepository.save(madeIn2);
+		madeInRepository.save(madeIn2);*/
 	}
 }
