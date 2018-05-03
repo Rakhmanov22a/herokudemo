@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MadeIn</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+    <style>
+        .navigation-order{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Пройзводитель</h1>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Bike Name</th>
+                        <th>Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="madeIn : ${madeIns}">
+                        <td th:text="${madeIn.bikeName}"></td>
+                        <td th:text="${madeIn.location}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-row">
+            <form class="needs-validation" novalidate action="#" th:action="@{/savemadeIn/}" th:object="${madeIn}" method="post">
+                <label for="bike_name">Bike Name</label>
+                <input type="text" id="bike_name" th:field="*{bikeName}" class="form-control" required/>
+                <div class="invalid-feedback">Введите название bike</div>
+
+                <label for="location">Location</label>
+                <input type="text" id="location" th:field="*{location}" class="form-control" required/>
+                <div class="invalid-feedback">Введите location</div>
+                <br/>
+                <button type="submit" class="btn btn-outline-success">Добавить</button>
+            </form>
+        </div>
+        <br />
+        <div class="row navigation-order">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <a href="/bikes">Перейти на страницу bike</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/jquery.js" type="application/javascript"></script>
+<script src="/bootstrap.min.js" type="application/javascript"></script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>
