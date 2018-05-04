@@ -19,6 +19,8 @@ public class BikeController {
     @Autowired
     private MadeInRepository madeInRepository;
 
+
+
     @RequestMapping(value = "/bikes", method = RequestMethod.GET)
     public String bikesList(Model model){
         model.addAttribute("bikes", bikeRepository.findAll());
